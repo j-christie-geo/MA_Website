@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Exhibit Test</title>
+<style>
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .exhibit {
+    flex: 0 0 30%;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    cursor: pointer;
+  }
+  .exhibit-content {
+    flex: 0 0 100%;
+    padding: 1rem;
+    background: #f9f9f9;
+    border: 1px solid #aaa;
+  }
+</style>
+</head>
+<body>
+
+<div id="exhibit-container" class="flex-container">
+  <div class="exhibit" data-id="1">Exhibit 1</div>
+  <template id="content-1">
+    <div>
+      <h3>Exhibit 1 Detail</h3>
+      <p>Details for Exhibit 1 go here.</p>
+    </div>
+  </template>
+
+  <div class="exhibit" data-id="2">Exhibit 2</div>
+  <template id="content-2">
+    <div>
+      <h3>Exhibit 2 Detail</h3>
+      <p>Details for Exhibit 2 go here.</p>
+    </div>
+  </template>
+
+  <div class="exhibit" data-id="3">Exhibit 3</div>
+  <template id="content-3">
+    <div>
+      <h3>Exhibit 3 Detail</h3>
+      <p>Details for Exhibit 3 go here.</p>
+    </div>
+  </template>
+</div>
+
+<script>
+  const container = document.getElementById('exhibit-container');
+  const exhibits = Array.from(container.getElementsByClassName('exhibit'));
+
+  exhibits.forEach(exhibit => {
+  exhibit.addEventListener('click', () => {
+    const existingContent = document.querySelector('.exhibit-content');
+    const id = exhibit.dataset.id;
+
+    // Check if content is already open for this exhibit
+    if (existingContent && existingContent.dataset.exhibitId === id) {
+      // Close it by removing
+      existingContent.remove();
+      return;
+    }
+
+    // Remove old content if any
+    if (existingContent) existingContent.remove();
+
+    // Find the template for this exhibit
+    const template = document.getElementById(`content-${id}`);
+    if (!template) return;
+
+    // Clone and insert new content
+    const content = document.createElement('div');
+    content.className = 'exhibit-content';
+    content.dataset.exhibitId = id;  // mark which exhibit this content belongs to
+    content.appendChild(template.content.cloneNode(true));
+
+    // Find last exhibit in same row
+    const exhibitTop = exhibit.offsetTop;
+    let lastInRow = exhibit;
+    for (const next of exhibits) {
+      if (next.offsetTop > exhibitTop) break;
+      lastInRow = next;
+    }
+
+    lastInRow.insertAdjacentElement('afterend', content);
+  });
+});
+</script>
+
+</body>
+</html>

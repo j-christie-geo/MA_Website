@@ -1,0 +1,334 @@
+html {
+    background-color: #000000;
+}
+
+/* Logo background */
+.logo-bg {
+    font-family: 'Major Mono Display', monospace;
+    color: rgba(253, 69, 2, 0.2);
+    font-size: 50vw;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    z-index: 0; /* Ensure it stays on top */
+}
+
+body  {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 300;
+    border-right: 10px solid rgba(253, 69, 2, 0.758);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body.fade-in {
+  opacity: 1;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+
+
+/* #### HEADER FEATURES #### */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0;
+    background: #000000;
+    color: #fff;
+    font-family: "Major Mono Display", monospace;
+    margin: 0 auto;
+    margin-bottom: 2em;
+}
+
+.hamburger {
+    width: 3em;
+    height: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2em;
+    cursor: pointer;
+    gap: 0.4em;
+    background: rgba(253, 69, 2, 0.758);
+    margin: 0;
+    position: relative;
+    z-index: 1100; /* Higher than .side-menu */
+    transition: 0.5s;
+}
+
+.hamburger span {
+    display: block;
+    height: 0.25em;
+    width: 100%;
+    background: #222;
+    border-radius: 2px;
+    transition: 0.3s;transition: 0.5s;
+}
+
+.hamburger:hover  {
+    background: rgba(253, 69, 2, 0.4);
+    transition: 0.5s;
+}
+
+.hamburger:hover span  {
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: 0.5s;
+}
+
+/* Hamburger active state */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Side menu styles */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -400px;
+    width: 400px;
+    height: 100%;
+    background: #181818;
+    color: #fff;
+    transition: left 0.3s;
+    z-index: 1000;
+    padding-top: 8em;
+    z-index: 1000;
+}
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.side-menu li {
+    margin: 1.5em 0;
+    text-align: left;
+}
+.side-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 2em;
+    padding: 0.5em 2em;
+    display: block;
+    transition: 0.5s;
+}
+.side-menu a:hover {
+    background: #222;
+    color: rgba(253, 69, 2, 0.758);
+    transition: 0.5s;
+}
+
+/* Show menu when active */
+.side-menu.active {
+    left: 0;
+}
+
+.side-menu ul ul {
+    display: block; /* Always show submenu */
+    padding-left: 10em;
+    padding-bottom: 0;
+    background: #222;
+    font-size: 0.6em;
+}
+
+.project-logo {
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    display: block;
+    padding-right: 2rem;
+}
+
+.project-logo-mob {
+    display: none;
+}
+
+.logo-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.logo-link:hover {
+    color: rgba(253, 69, 2, 0.758);
+    text-decoration: none;
+    transition: 0.5s;
+}
+.logo-link:visited {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+.logo-link-mob {
+    display: none;
+}
+
+.container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+.container {
+    width: 80%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+p.MA {
+    color: rgba(255, 255, 255, 0.4);
+    font-family: "Major Mono Display", monospace;
+    font-size: 4.0em;
+}
+
+p.header {
+    color: rgba(255, 255, 255, 1);
+    font-family: "Major Mono Display", monospace;
+    font-size: 2.0em;
+}
+
+p.line {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'montserrat', sans-serif;
+    font-size: 1.0em;
+}
+
+
+p.signoff {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'montserrat', sans-serif;
+    font-size: 1.0em;
+    font-style:italic;
+}
+
+/* #### LOGOS #### */
+
+.funding-logos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em; /* Space between logos */
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.funding-logo-uea {
+    width: auto; /* Adjust size as needed */
+    height: 150px;
+    display: block;
+}
+
+.funding-logo-gcrf {
+    width: auto; /* Adjust size as needed */
+    height: 100px;
+    display: block;
+}
+
+.funding-logo-ahrc {
+    width: auto; /* Adjust size as needed */
+    height: 150px;
+    display: block;
+}
+
+.funding-logo-ukri {
+    width: auto; /* Adjust size as needed */
+    height: 250px;
+    display: block;
+}
+
+/* #### BUTTONS #### */
+
+.btn__back {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    font-family: 'montserrat', sans-serif;
+    font-weight:100;
+    padding: 1em 2em;
+    cursor: pointer;
+}
+
+.btn__back:hover {
+    /* color: rgba(11, 3, 3, 1); */
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    /* background-color: rgba(255, 255, 255, 0.2); */
+    background-color: rgba(253, 69, 2, 0.4); 
+    /* border-color: rgba(255, 255, 255, 0.8); */
+    border-color:rgba(253, 69, 2, 0.758);
+    transition: 0.5s;
+}
+
+.btn__back span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn__back span:before {
+  content: '\00AB';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.btn__back:hover span {
+  padding-left: 25px;
+}
+
+.btn__back:hover span:before {
+  opacity: 1;
+  left: 0;
+}
+
+.btn__back a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+.btn__back a:visited {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* #### FOOTER #### */
+
+footer {
+    background-color: #000000;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.8em;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: 2em;
+}
+
+@media (max-width: 479px) {
+    p.MA {
+        font-size: 3.0em;
+    }
+}

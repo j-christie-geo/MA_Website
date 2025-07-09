@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: black;" >
+<head>
+    <link rel="stylesheet" href="styles/styles_about.css">
+    <title>Mountain Aglow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"> -->
+</head>
+<body>
+    <!-- #### PAGE HEADER #### -->
+    <div class="page-header">
+        <div class="hamburger" id="menuToggle" tabindex="0" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="side-menu" id="sideMenu">
+            <ul>
+                <li><a href="../index.html">home</a></li>
+                <li><a href="about.html">About</a></li>
+                    <ul class="submenu">
+                        <li><a href="../pages/credits.html">&#187; credits</a></li>
+                        <li><a href="../holding2.html">&#187; impAct</a></li>
+                    </ul>
+                <li><a href="../holding2.html">explore</a></li>
+
+                <!-- Add more links as needed -->
+            </ul>
+        </nav>
+        <div class="project-logo">
+            <a href = '../index.html' class="logo-link">
+                <span style="font-size: 2.5rem; font-weight: 800; color: rgba(253, 69, 2, 0.758);">M</span>ountAin <span style="font-size: 2.5rem; font-weight: 800; color: rgba(253, 69, 2, 0.758);">A</span>gloW
+            </a>
+        </div>
+        <div class="project-logo-mob">
+            <a href = '../index.html' class="logo-link-mob">
+                MA
+            </a>
+        </div>
+    </div>
+
+    <!-- #### MAIN PAGE #### -->
+
+
+    
+    <!-- #### FOOTER #### -->
+    <footer>
+        <div class="funding-logos">
+            <img src="../Images/logos/UEAlogo.png" alt="UEA Logo" class="funding-logo-uea">
+            <img src="../Images/GCRF_logo.webp" alt="GCRF Logo" class="funding-logo-gcrf">
+            <img src="../Images/logos/UKRIlogo.png" alt="UKRI Logo" class="funding-logo-ukri">
+            <img src="../Images/logos/APEXlogo.png" alt="APEX Logo" class="funding-logo-ahrc">
+        </div>
+        <p>
+            © 2025 Disaster Passed Project. All rights reserved.
+            <br>
+            Website design and development by James Christie, inspired by flocc.
+        </p>
+    </footer>
+
+    <script>
+    const hamburger = document.getElementById('menuToggle');
+    const menu = document.getElementById('sideMenu');
+
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        menu.classList.toggle('active');
+    });
+
+    // Optional: close menu when a link is clicked
+    menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            menu.classList.remove('active');
+        });
+    });
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+            hamburger.classList.remove('active');
+            menu.classList.remove('active');
+        }
+    });
+    </script>
+</body>
+</html>

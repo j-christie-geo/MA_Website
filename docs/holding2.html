@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: black;"> 
+<head>
+    <link rel="stylesheet" href="styles_landing.css">
+    <title>Mountain Aglow</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">  
+</head>
+<body>
+    <div class="logo-bg">
+        <p>
+            MA
+        </p>
+    </div>
+     <!-- #### PAGE HEADER #### -->
+    <div class="page-header">
+        <div class="hamburger" id="menuToggle" tabindex="0" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="side-menu" id="sideMenu">
+            <ul>
+                <li><a href="../index.html">home</a></li>
+                <li><a href="about.html">About</a></li>
+                    <ul class="submenu">
+                        <li><a href="../pages/credits.html">&#187; credits</a></li>
+                        <li><a href="../holding2.html">&#187; impAct</a></li>
+                    </ul>
+                <li><a href="../pages/explore.html">explore</a></li>
+
+                <!-- Add more links as needed -->
+            </ul>
+        </nav>
+        <div class="project-logo">
+            <a href = '../index.html' class="logo-link">
+                <span style="font-size: 2.5rem; font-weight: 800; color: rgba(253, 69, 2, 0.758);">M</span>ountAin <span style="font-size: 2.5rem; font-weight: 800; color: rgba(253, 69, 2, 0.758);">A</span>gloW
+            </a>
+        </div>
+        <div class="project-logo-mob">
+            <a href = '../index.html' class="logo-link-mob">
+                MA
+            </a>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <p class="MA">
+            MountAin Aglow
+        </p>
+
+        <p class="header">
+            Welcome to our holding page.
+        </p>
+        
+        <p class="line">
+            This website is currently being migrated. We appreciate your patience.
+        </p>
+        
+        <p class="signoff">
+            Sincerely,
+            <br>
+            <br>
+            The Mountain Aglow Team
+        </p>
+            
+        <button class="btn__back">
+            <a href = '../pages/explore.html'>
+                <span>
+                    Back to Explore
+                </span>
+            </a>
+        </button>
+    </div>
+</body>
+
+<!-- #### FOOTER #### -->
+    <footer>
+        <div class="funding-logos">
+            <img src="../Images/logos/UEAlogo.png" alt="UEA Logo" class="funding-logo-uea">
+            <img src="../Images/GCRF_logo.webp" alt="GCRF Logo" class="funding-logo-gcrf">
+            <img src="../Images/logos/UKRIlogo.png" alt="UKRI Logo" class="funding-logo-ukri">
+            <img src="../Images/logos/APEXlogo.png" alt="APEX Logo" class="funding-logo-ahrc">
+        </div>
+        <p>
+            © 2025 Disaster Passed Project. All rights reserved.
+            <br>
+            Website design and development by James Christie, inspired by flocc.
+        </p>
+    </footer>
+
+
+    <!-- #### SCRIPTS #### COULD BE ADDED AS SEPARATE FILES TO SAVE CODE -->
+
+
+    <!-- Fade In/Out -->
+    <script>
+    // Fade in on page load
+    window.addEventListener('load', () => {
+    document.body.classList.add('fade-in');
+    });
+
+    // Fade out on link click
+    document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.body.classList.remove('fade-in'); // Optional: remove fade-in if you like
+        document.body.classList.add('fade-out');
+
+        setTimeout(() => {
+        window.location.href = this.href;
+        }, 500); // Match CSS transition time
+    });
+    });
+    </script>
+
+    <!-- Hamburger animation -->
+    <script>
+    const hamburger = document.getElementById('menuToggle');
+    const menu = document.getElementById('sideMenu');
+
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        menu.classList.toggle('active');
+    });
+
+    // Optional: close menu when a link is clicked
+    menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            menu.classList.remove('active');
+        });
+    });
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+            hamburger.classList.remove('active');
+            menu.classList.remove('active');
+        }
+    });
+    </script>
+</body>
+</html>
